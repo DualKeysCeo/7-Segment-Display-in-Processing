@@ -7,12 +7,14 @@ int top = 0,
     lTop = 6;
         
 void setup() {
-    size(140, 260);
+    //size(140, 260);
+    fullScreen();
 }
 
 void draw() {
+    translate(width/2 - 70, height/2 - 130);
     background(0);
-    int[] disp = sevenSegs("8");
+    int[] disp = sevenSegs("0");
 
     noStroke();
     fill(255, 0, 0);
@@ -56,6 +58,9 @@ int[] sevenSegs(String disChar) {
         display[rTop] = 0;
         display[rBottom] = 0;
         display[bottom] = 0;
+    } else if (disChar == "0") {
+        fillArr(display, 1);
+        display[middle] = 0;
     } else if (disChar == "1") {
         fillArr(display, 0);
         display[rTop] = 1;
