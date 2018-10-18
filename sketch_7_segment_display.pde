@@ -5,10 +5,14 @@ int top = 0,
     bottom = 4,
     lBottom = 5,
     lTop = 6;
-        
+int lastTime,
+    totalTime = 1000;
+boolean red;
 void setup() {
     //size(140, 260);
-    fullScreen(1);
+    fullScreen(2);
+    lastTime = millis();
+    red = true;
 }
 
 void draw() {
@@ -22,9 +26,7 @@ void draw() {
     noStroke();
     sevenSegs(Integer.toString(h2), -300);
     sevenSegs(Integer.toString(h1), -100);
-    color(255, 0, 0);
-    ellipse(70, 50, 20, 20);
-    ellipse(70, 180, 20, 20);
+    drawColon();
     sevenSegs(Integer.toString(m2), 100);
     sevenSegs(Integer.toString(m1), 300);
 }
@@ -133,4 +135,23 @@ void fillArr(int[] arr, int var) {
     for (int i = 0; i < arr.length; i++) {
         arr[i] = var;
     }
+}
+
+void drawColon() {
+    int clr = 255;
+    int passedTime = millis() - lastTime;
+    if (passedTime > totalTime) {
+        lastTime = millis();
+        red = !red;
+        println(red);
+    }
+    
+    if (red) {
+        clr = 255;
+    } else {
+        clr = 50;
+    }
+    fill(clr, 0, 0);
+    ellipse(70, 50, 20, 20);
+    ellipse(70, 180, 20, 20);
 }
