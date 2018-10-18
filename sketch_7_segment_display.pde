@@ -7,12 +7,12 @@ int top = 0,
     lTop = 6;
         
 void setup() {
-    size(800, 600);
+    size(140, 260);
 }
 
 void draw() {
     background(0);
-    int[] disp = sevenSegs("6");
+    int[] disp = sevenSegs("8");
 
     noStroke();
     fill(255, 0, 0);
@@ -80,9 +80,13 @@ int[] sevenSegs(String disChar) {
         display[top] = 1;
         display[rTop] = 1;
         display[rBottom] = 1;
+    } else if (disChar == "8"){
+        fillArr(display, 1);
     } else if (disChar == "9") {
         display[lBottom] = 0;
         display[bottom] = 0;
+    } else {
+        fillArr(display, 0);
     }
     return display;
 }
