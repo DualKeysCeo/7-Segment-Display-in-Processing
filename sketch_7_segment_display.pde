@@ -9,8 +9,8 @@ int lastTime,
     totalTime = 1000;
 boolean red;
 void setup() {
-    //size(140, 260);
-    fullScreen(2);
+    size(740, 260);
+    //fullScreen();
     lastTime = millis();
     red = true;
 }
@@ -143,7 +143,6 @@ void drawColon() {
     if (passedTime > totalTime) {
         lastTime = millis();
         red = !red;
-        println(red);
     }
     
     if (red) {
